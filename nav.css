@@ -37,6 +37,7 @@ section.first .top {
 section.first .hoverable {
     display: flex;
     flex-direction: column;
+    transition: all .5s ease-in-out;
 }
 section.first .hoverable:hover .hover-reveal {
     display: flex;
