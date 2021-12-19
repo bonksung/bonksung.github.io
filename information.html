@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <style>
+            body {
+                margin: 0;
+               font-family: "Noto Serif", sans-serif;
+            }
+            section {
+                height: 300px;
+                font-weight: 700;
+                font-size: 40px;
+                display: flex;
+                flex-direction: row;
+                padding-bottom: 15px;
+                padding-top: 15px;
+            }
+            section .img {
+                height: 100%;
+                width: 100%;
+                background-size: contain;
+            }
+            section .text {
+                display: flex;
+                padding-left: 30px;
+                align-items: end;
+                font-size: 70px;
+                
+            }
+            section .text2 {
+                font-family: "Noto Sans";
+                font-weight: 300;
+                font-size: 25px;
+                color: white;
+                display: flex;
+                padding-left: 10px;
+                align-items: end;
+                margin-left: 30px;
+                background-color: #1976D2;
+            }
+        </style>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <section>
+            <div class="text2" style="flex: 1;">
+                this is sub text
+            </div>
+            <div class="text" style="flex: 0.6;">
+                How to seperate plastic clearly?
+            </div>
+        </section>
+        <section>
+            <div class="img" style="flex: 1; background-image: url('img/step1.png')">
+
+            </div>
+            <div class="text2" style="flex: 1.4;">
+                How to seperate plastic clearly?
+            </div>
+        </section>
+        <section>
+            <div class="text2" style="flex: 1; ">
+                this is sub text
+            </div>
+            <div class="img" style="flex: 0.6; background-image: url('img/step2.png')">
+
+            </div>
+        </section>
+        <section>
+            <div class="img" style="flex: 1; background-image: url('img/step3.png')">
+
+            </div>
+            <div class="text2" style="flex: 1.4;">
+                How to seperate plastic clearly?
+            </div>
+        </section>
+    </body>
+</html>
