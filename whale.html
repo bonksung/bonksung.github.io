@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+    <script type="text/javascript">
+const width = 1920;
+const height = 1080;
+let whale;
+let wave1, wave2;
+let resources, resources2;
+let wastes = [];
+let belly_wastes = [];
+let previousResourcesCount = 0
+let images = [0, 1, 2, 3, 4, 5, 6];
+let images2 = [0, 1, 2, 3, 4, 5, 6];
+let light;
+function setup() {
+    createCanvas(windowWidth, windowHeight);
+    whale = loadImage('yundogod/whale.png');
+    wave1 = loadImage('yundogod/wave1.png');
+    wave2 = loadImage('yundogod/wave2.png');
+    
+    resources = [
+        'bottle_without_lid.png', 
+        'bottle_without_contents_and_label.png', 
+        'bottle_without_lid_and_label.png', 
+        'bottle_without_label.png', 
+        'bottle_without_contents_and_lid.png',
+        'bottle_without_contents.png',
+        'bottle.png'
+    ]
+    resources2 = [
+        'bottle_belly_1.png', 
+        'bottle_belly_2.png', 
+        'bottle_belly_3.png', 
+        'bottle_belly_4.png', 
+        'bottle_belly_5.png', 
+        'bottle_belly_6.png', 
+    ]
+    wastes = resources.map(r => loadImage(`yundogod/${r}`))
+    belly_wastes = resources2.map(r => loadImage(`yundogod/${r}`))
+    light = loadImage('yundogod/light.png');
+}
+
+function shuffle(array) { array.sort(() => Math.random() - 0.5); }
+
+function draw() {
+    background("#fff");
+    
+    image(wave2, 0, 0, windowWidth, windowHeight)
+    image(wave1, 0, 0, windowWidth, windowHeight)
+    image(whale, 0, 0, windowWidth, windowHeight)
+    
+    textSize(32);
+    fill(0, 0, 0)
+    const min = 1921;
+    const max = 2121;
+    const possibility = mouseX / windowWidth;
+    const year = parseInt(possibility * (max - min) + min, 10);
+    const resourcesCount = parseInt(possibility * resources.length, 10)
+    const resources2Count = parseInt(possibility * resources2.length, 10)
+    if (previousResourcesCount != resourcesCount) {
+        // images = shuffle(images)
+    }
+    previousResourcesCount = resourcesCount
+    for (let i = 0; i < resourcesCount; i++) {
+        image(wastes[images[i]], 0, 0, windowWidth, windowHeight)
+    }
+    image(light, 0, windowHeight-mouseY, windowWidth, windowHeight)
+    tint(255, mouseY / windowHeight * 255)
+    for (let i = 0; i < resources2Count; i++) {
+        image(belly_wastes[images2[i]], 0, 0, windowWidth, windowHeight)
+    }
+    noTint()
+    const a = `${year}-${09}-${26}`
+    text(a, 100, 100)
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+}
+
+    </script>
+  </head>
+  <body style="margin: 0">
+    <main>
+    </main>
+  </body>
+</html>
